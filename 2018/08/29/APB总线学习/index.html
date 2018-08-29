@@ -89,20 +89,20 @@
 <meta property="og:site_name" content="刘晏辰的博客">
 <meta property="og:description" content="0 简介​    APB(Advanced Peripheral Bus)，外围总线。APB属于AMBA 3 协议系列，它提供了一个低功耗的接口， 并降低了接口的复杂性。 APB接口用在低带宽和不需要高性能总线的外围设备上。 APB是非流水线结构，所有的信号仅与时钟上升沿相关，这样就可以简化APB外围设备的设计流程，每个传输至少耗用两个周期。APB可以与AMBA高级高性能总线(AHB-Lite)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\APB状态图.png">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\APB信号表.png">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\无等待写传输.png">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\有等待写传输.png">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\无等待读传输.png">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\有等待读传输.png">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\写传输失败.png">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\读传输失败.png">
-<meta property="og:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\APB状态图.png">
-<meta property="og:updated_time" content="2018-08-29T14:55:10.702Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/APB%E7%8A%B6%E6%80%81%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/APB%E4%BF%A1%E5%8F%B7%E8%A1%A8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E6%97%A0%E7%AD%89%E5%BE%85%E5%86%99%E4%BC%A0%E8%BE%93.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E6%9C%89%E7%AD%89%E5%BE%85%E5%86%99%E4%BC%A0%E8%BE%93.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E6%97%A0%E7%AD%89%E5%BE%85%E8%AF%BB%E4%BC%A0%E8%BE%93.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E6%9C%89%E7%AD%89%E5%BE%85%E8%AF%BB%E4%BC%A0%E8%BE%93.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E5%86%99%E4%BC%A0%E8%BE%93%E5%A4%B1%E8%B4%A5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%BC%A0%E8%BE%93%E5%A4%B1%E8%B4%A5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/APB%E7%8A%B6%E6%80%81%E5%9B%BE.png">
+<meta property="og:updated_time" content="2018-08-29T15:23:12.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APB总线学习">
 <meta name="twitter:description" content="0 简介​    APB(Advanced Peripheral Bus)，外围总线。APB属于AMBA 3 协议系列，它提供了一个低功耗的接口， 并降低了接口的复杂性。 APB接口用在低带宽和不需要高性能总线的外围设备上。 APB是非流水线结构，所有的信号仅与时钟上升沿相关，这样就可以简化APB外围设备的设计流程，每个传输至少耗用两个周期。APB可以与AMBA高级高性能总线(AHB-Lite)">
-<meta name="twitter:image" content="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\APB状态图.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/APB%E7%8A%B6%E6%80%81%E5%9B%BE.png">
 
 
 
@@ -400,14 +400,14 @@
       
         <h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0 简介"></a>0 简介</h2><p>​    APB(Advanced Peripheral Bus)，外围总线。APB属于AMBA 3 协议系列，它提供了一个低功耗的接口， 并降低了接口的复杂性。 APB接口用在低带宽和不需要高性能总线的外围设备上。 APB是非流水线结构，所有的信号仅与时钟上升沿相关，这样就可以简化APB外围设备的设计流程，每个传输至少耗用两个周期。APB可以与AMBA高级高性能总线(AHB-Lite) 和AMBA 高级可扩展接口 (AXI)连接。 </p>
 <p>​    APB主要用于低带宽的周边外设之间的连接，例如UART、1284等，它的总线架构不像AHB支持多个主模块，在APB里面唯一的主模块就是APB 桥。其特性包括：两个时钟周期传输；无需等待周期和回应信号；控制逻辑简单，只有四个控制信号。APB上的传输可以用状态图来说明。  </p>
-<p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\APB状态图.png" alt="APB状态图"></p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/APB%E7%8A%B6%E6%80%81%E5%9B%BE.png" alt="APB状态图"></p>
 <ol>
 <li>系统初始化为IDLE状态，此时没有传输操作，也没有选中任何从模块。 </li>
 <li>当有传输要进行时，PSELx=1，PENABLE=0，系统进入SETUP状态，并只会在SETUP 状态停留一个周期。当PCLK的下一个上升沿时到来时，系统进入ENABLE 状态。 </li>
 <li>系统进入ENABLE状态时，维持之前在SETUP 状态的PADDR、PSEL、PWRITE不变，并将PENABLE置为1。传输也只会在ENABLE状态维持一个周期，在经过SETUP与ENABLE状态之后就已完成。之后如果没有传输要进行，就进入IDLE状态等待；如果有连续的传输，则进入SETUP状态。 </li>
 </ol>
 <h2 id="1-信号描述"><a href="#1-信号描述" class="headerlink" title="1 信号描述"></a>1 信号描述</h2><p>​    下表给出了APB的信号。APB的支持最大32-bit的数据位宽。APB协议有两个独立的数据通道，读通道和写通道，由于APB的两个通道没有自己的handshake信号（vaild/ ready），因此两个通道不会同时使用。 </p>
-<p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\APB信号表.png" alt="APB信号表"></p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/APB%E4%BF%A1%E5%8F%B7%E8%A1%A8.png" alt="APB信号表"></p>
 <p>除了上表的信号外，APB还有两个信号接口：</p>
 <ul>
 <li>PPROT: 保护类型，分为 normal, privileged, secure, data/instruction 访问。</li>
@@ -415,27 +415,27 @@
 </ul>
 <h2 id="2-传输"><a href="#2-传输" class="headerlink" title="2 传输"></a>2 传输</h2><h3 id="2-1-写传输"><a href="#2-1-写传输" class="headerlink" title="2.1 写传输"></a>2.1 写传输</h3><p>​    写传输包括两种类型：无等待状态和有等待状态 </p>
 <h4 id="无等待状态"><a href="#无等待状态" class="headerlink" title="无等待状态"></a>无等待状态</h4><p>​    下图显示了一个基本的无等待状态的写传输。 </p>
-<p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\无等待写传输.png" alt="无等待写传输"></p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E6%97%A0%E7%AD%89%E5%BE%85%E5%86%99%E4%BC%A0%E8%BE%93.png" alt="无等待写传输"></p>
 <p>​    地址、写入数据、写入信号和选择信号都在时钟上升沿后改变。第一个时钟周期叫做Setup phase。 下一个时钟沿后使能信号<strong>PENABLE</strong>被置位，表示Access phase就位。地址、数据和控制信号在Access phase期间有效。传输在该周期后结束。使能信号<strong>PENABLE</strong>, 在传输结束后清空。 选择信号<strong>PSELx</strong>同样被置低，除非紧接着下一传输开始。 </p>
 <h4 id="有等待状态"><a href="#有等待状态" class="headerlink" title="有等待状态"></a>有等待状态</h4><p>​    下图展示了 <strong>PREADY</strong> 信号是如何扩展了从器件的传输。 </p>
-<p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\有等待写传输.png" alt="有等待写传输"></p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E6%9C%89%E7%AD%89%E5%BE%85%E5%86%99%E4%BC%A0%E8%BE%93.png" alt="有等待写传输"></p>
 <p>​    在Access phase期间，当<strong>PENABLE</strong>为高，传输可以通过拉低<strong>PREADY</strong>来扩展传输。下述信号仍旧不变：• 地址： <strong>PADDR</strong>• 写信号： <strong>PWRITE</strong>• 选择信号： <strong>PSEL</strong>• 使能信号：<strong>PENABLE</strong>• 写入的数据： <strong>PWDATA</strong>。</p>
 <h3 id="2-2-读传输"><a href="#2-2-读传输" class="headerlink" title="2.2 读传输"></a>2.2 读传输</h3><p>​    读传输包括以下两种类型：无等待状态和有等待状态 。</p>
 <h4 id="无等待状态-1"><a href="#无等待状态-1" class="headerlink" title="无等待状态"></a>无等待状态</h4><p>​    下图显示了一个读传输的无等待状态的时序图。从器件必须在读传输结束前提供数据。 </p>
-<p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\无等待读传输.png" alt="无等待读传输"> </p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E6%97%A0%E7%AD%89%E5%BE%85%E8%AF%BB%E4%BC%A0%E8%BE%93.png" alt="无等待读传输"> </p>
 <h4 id="有等待状态-1"><a href="#有等待状态-1" class="headerlink" title="有等待状态"></a>有等待状态</h4><p>​    下图显示了信号是如何扩展传输的。如果在Access phase期间<strong>PREADY</strong>信号拉低，则传输被扩展。但下述信号不变：• 地址： <strong>PADDR</strong>• 写信号： <strong>PWRITE</strong>• 选择信号： <strong>PSEL</strong>• 使能信号： <strong>PENABLE</strong>. </p>
 <p>​    图中显示了如何使用<strong>PREADY</strong>信号来添加两个周期，你也可以添加数个周期。 </p>
-<p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\有等待读传输.png" alt="有等待读传输"></p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E6%9C%89%E7%AD%89%E5%BE%85%E8%AF%BB%E4%BC%A0%E8%BE%93.png" alt="有等待读传输"></p>
 <h3 id="2-3-错误响应"><a href="#2-3-错误响应" class="headerlink" title="2.3 错误响应"></a>2.3 错误响应</h3><p>​    使用<strong>PSLVERR</strong>来指示APB传输错误。当<strong>PSEL</strong>, <strong>PENABLE</strong>以及<strong>PREADY</strong> 都为高时，<strong>PSLVERR</strong>才在最后一个周期进行判断。 当任何一个<strong>PSEL</strong>, <strong>PENABLE</strong>或者<strong>PREADY</strong>为低时，你可以将<strong>PSLVERR</strong>拉低，这是推荐，并不是强制要求。 收到一个错误后，可能或不可能改变外围器件的状态。 APB外围设备不要求必须支持<strong>PSLVERR</strong>引脚，当不使用该引脚时，应被置低。 </p>
 <p>​    写传输失败的例子。 </p>
-<p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\写传输失败.png" alt="写传输失败"></p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E5%86%99%E4%BC%A0%E8%BE%93%E5%A4%B1%E8%B4%A5.png" alt="写传输失败"></p>
 <pre><code>读传输同样可以使用错误响应，下图便是一个错误响应的例子 
-</code></pre><p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\读传输失败.png" alt="读传输失败"></p>
+</code></pre><p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%BC%A0%E8%BE%93%E5%A4%B1%E8%B4%A5.png" alt="读传输失败"></p>
 <p> <strong>PSLVERR</strong>映射：</p>
 <p>​    <strong>AXI</strong>桥接到<strong>APB</strong>: AXI的<strong>RRESP</strong>/<strong>BRESP</strong> = APB的SLVERR(read: <strong>PSLVERR</strong> <strong>-&gt;</strong> <strong>RRESP[1]</strong>, write: <strong>PSLVERR</strong> <strong>-&gt;</strong> <strong>BRESP[1]</strong>)</p>
 <p>​    <strong>AHB</strong>桥接到<strong>APB</strong>: <strong>PSLVERR</strong>被映射到<strong>HRESP</strong> = ERROR(<strong>PSLVERR -&gt; HRESP[0])</strong></p>
 <h2 id="3-操作状态"><a href="#3-操作状态" class="headerlink" title="3 操作状态"></a>3 操作状态</h2><p>​    下图给出了 APB的操作流程 </p>
-<p><img src="https://github.com/liuyanchen256/liuyanchen256.github.io/blob/master/images/APB总线学习\APB状态图.png" alt="APB状态图"></p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/08/29/APB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0/APB%E7%8A%B6%E6%80%81%E5%9B%BE.png" alt="APB状态图"></p>
 <p>​    状态机按照下面的状态执行：</p>
 <ul>
 <li><strong>IDLE</strong> 这是默认的APB状态</li>
