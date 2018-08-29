@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>刘晏辰的博客</title>
   
-  <subtitle>技术博客</subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -50,7 +50,7 @@
     <link href="http://yoursite.com/2018/08/29/hello-world/"/>
     <id>http://yoursite.com/2018/08/29/hello-world/</id>
     <published>2018-08-29T03:35:43.822Z</published>
-    <updated>2018-08-29T03:35:43.823Z</updated>
+    <updated>2018-08-29T09:44:19.289Z</updated>
     
     <summary type="html">
     
@@ -64,6 +64,12 @@
     
     </summary>
     
+      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="标签1" scheme="http://yoursite.com/tags/%E6%A0%87%E7%AD%BE1/"/>
+    
+      <category term="标签2" scheme="http://yoursite.com/tags/%E6%A0%87%E7%AD%BE2/"/>
     
   </entry>
   
