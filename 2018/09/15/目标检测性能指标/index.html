@@ -89,12 +89,13 @@
 <meta property="og:site_name" content="刘晏辰的博客">
 <meta property="og:description" content="0 简介目标检测问题是指： 给定一个图像，找到图像中存在的目标，并且进行位置标定和分类。具体目标的类别要在预先的训练中给出。 1 基础名词解释 准确率（accuracy） 精确率（precision） 召回率（recall） 数据真实值（Ground Truth） 交并比（IOU）  1.1 准确率（accuracy）、精确率（precision）和召回率（recall）在解释准确率、精确率和召回">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="d:/blog_lyc/blog/public/2018/09/15/目标检测性能指标/iou.png">
-<meta property="og:updated_time" content="2018-09-15T14:17:36.913Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/09/15/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/iou.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/09/15/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/Map.png">
+<meta property="og:updated_time" content="2018-09-15T15:48:44.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测性能指标">
 <meta name="twitter:description" content="0 简介目标检测问题是指： 给定一个图像，找到图像中存在的目标，并且进行位置标定和分类。具体目标的类别要在预先的训练中给出。 1 基础名词解释 准确率（accuracy） 精确率（precision） 召回率（recall） 数据真实值（Ground Truth） 交并比（IOU）  1.1 准确率（accuracy）、精确率（precision）和召回率（recall）在解释准确率、精确率和召回">
-<meta name="twitter:image" content="d:/blog_lyc/blog/public/2018/09/15/目标检测性能指标/iou.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/09/15/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/iou.png">
 
 
 
@@ -412,7 +413,148 @@
 <p>召回率（Recall）=TP/(TP+FN)。TP+FN是样本中正例的数量，反映了被正确判定的正例占总的正例的比重 。</p>
 <h3 id="1-2-数据真实值（Ground-Truth）和交并比（IOU）"><a href="#1-2-数据真实值（Ground-Truth）和交并比（IOU）" class="headerlink" title="1.2 数据真实值（Ground Truth）和交并比（IOU）"></a>1.2 数据真实值（Ground Truth）和交并比（IOU）</h3><p>数据真实值（Ground Truth）可以认为是待检测图像的标签，它包括图像中的目标类别以及图像中每个目标的边界框。</p>
 <p>交并比（IOU）是指分类器所预测的检测框和数据真实的边界框的交集和并集的比例。如下图所示：</p>
-<p><img src="D:\blog_lyc\blog\public\2018\09\15\目标检测性能指标\iou.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/09/15/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/iou.png" alt="IOU"></p>
+<p>我们假设A为系统预测的框，B为数据本身的标注框。<br>$$<br>IOU=\frac{A{\bigcap}B}{A{\bigcup}B}<br>$$<br>IOU衡量了预测出的框和原来的框的重叠程度，就是阴影部分面积比整个AB组合的面积。 </p>
+<h2 id="2-平均精确率AP-Average-Precision-和mAP（mean-AP）"><a href="#2-平均精确率AP-Average-Precision-和mAP（mean-AP）" class="headerlink" title="2 平均精确率AP(Average Precision)和mAP（mean AP）"></a>2 平均精确率AP(Average Precision)和mAP（mean AP）</h2><p>通常在目标检测中，我们要给IOU设定一个阈值来判断检测是否正确。我们设定IOU阈值为0.5，即如果IOU&gt;0.5，则认为检测正确，否则检测错误。</p>
+<p>对于给定的IOU阈值，我们可以得到一组精确率（Precision）和召回率（Recall）。对于不同的IOU阈值，Precision和Recall会发生变化，在不重新训练模型的基础上，我们选取多个阈值，得到多组Precision和Recall来绘制PR曲线，如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/liuyanchen256/liuyanchen256.github.io/master/2018/09/15/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/Map.png" alt="AP"></p>
+<p>曲线下的面积为AP。</p>
+<p>设计AP的原因：Precision和Recall的高低与IOU阈值的设定有关，Precision和Recall是一个折中关系（tradeoff），单纯将一个阈值下的Precision和Recall拿出来作为性能指标都是不合理的，因此将PR曲线下的面积AP作为一个类的指标很合理。</p>
+<p>我们将每个类都看作一次二分类问题，AP就是一类目标识别的平均准确率。mAP就是对所有类的AP取平均。现在的图像分类论文基本都是用mAP作为标准。</p>
+<h2 id="3-常见目标检测模型的性能比较"><a href="#3-常见目标检测模型的性能比较" class="headerlink" title="3 常见目标检测模型的性能比较"></a>3 常见目标检测模型的性能比较</h2><table>
+<thead>
+<tr>
+<th>算法</th>
+<th>基础网络</th>
+<th>图像大小</th>
+<th>mAP50(VOC07+12)</th>
+<th>mAP50（COCO）</th>
+<th>FPS(Titan X)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSD300</td>
+<td>VGG-16</td>
+<td>300*300</td>
+<td>74.3</td>
+<td>41.2</td>
+<td>46</td>
+</tr>
+<tr>
+<td>SSD300*</td>
+<td>VGG-16</td>
+<td>300*300</td>
+<td>77.2</td>
+<td>43.1</td>
+<td>46</td>
+</tr>
+<tr>
+<td>SSD321</td>
+<td>Residual-101</td>
+<td>321*321</td>
+<td>77.1</td>
+<td>45.4</td>
+<td>11.2</td>
+</tr>
+<tr>
+<td>DSSD321</td>
+<td>Residual-101</td>
+<td>321*321</td>
+<td>78.6</td>
+<td>46.1</td>
+<td>9.5</td>
+</tr>
+<tr>
+<td>SSD512</td>
+<td>VGG-16</td>
+<td>512*512</td>
+<td>76.8</td>
+<td>46.5</td>
+<td>19</td>
+</tr>
+<tr>
+<td>SSD512*</td>
+<td>VGG-16</td>
+<td>512*512</td>
+<td>79.8</td>
+<td>48.5</td>
+<td>19</td>
+</tr>
+<tr>
+<td>SSD513</td>
+<td>Residual-101</td>
+<td>513*513</td>
+<td>80.6</td>
+<td>50.4</td>
+<td>6.8</td>
+</tr>
+<tr>
+<td>DSSD513</td>
+<td>Residual-101</td>
+<td>513*513</td>
+<td>81.5</td>
+<td>53.3</td>
+<td>5.5</td>
+</tr>
+<tr>
+<td>YOLO</td>
+<td>24层卷积</td>
+<td>448*448</td>
+<td>63.4</td>
+<td>——</td>
+<td>45</td>
+</tr>
+<tr>
+<td>Fast YOLO</td>
+<td>9层卷积</td>
+<td>448*448</td>
+<td>52.7</td>
+<td>——</td>
+<td>155</td>
+</tr>
+<tr>
+<td>YOLOv2</td>
+<td>Darknet-19</td>
+<td>416*416</td>
+<td>76.8</td>
+<td>44.0</td>
+<td>67</td>
+</tr>
+<tr>
+<td>YOLOv3</td>
+<td>Darknet-53</td>
+<td>416*416</td>
+<td>——</td>
+<td>55.3</td>
+<td>34</td>
+</tr>
+<tr>
+<td>Faster R-CNN</td>
+<td>VGG-16</td>
+<td>~1000*600</td>
+<td>73.2</td>
+<td>42.7</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Faster R-CNN</td>
+<td>Residual-101</td>
+<td>~1000*600</td>
+<td>76.4</td>
+<td>45.3</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>R-FCN</td>
+<td>Residual-101</td>
+<td>~1000*600</td>
+<td>80.5</td>
+<td>51.9</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -624,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-简介"><span class="nav-number">1.</span> <span class="nav-text">0 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基础名词解释"><span class="nav-number">2.</span> <span class="nav-text">1 基础名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-准确率（accuracy）、精确率（precision）和召回率（recall）"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 准确率（accuracy）、精确率（precision）和召回率（recall）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-数据真实值（Ground-Truth）和交并比（IOU）"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 数据真实值（Ground Truth）和交并比（IOU）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-简介"><span class="nav-number">1.</span> <span class="nav-text">0 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基础名词解释"><span class="nav-number">2.</span> <span class="nav-text">1 基础名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-准确率（accuracy）、精确率（precision）和召回率（recall）"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 准确率（accuracy）、精确率（precision）和召回率（recall）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-数据真实值（Ground-Truth）和交并比（IOU）"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 数据真实值（Ground Truth）和交并比（IOU）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-平均精确率AP-Average-Precision-和mAP（mean-AP）"><span class="nav-number">3.</span> <span class="nav-text">2 平均精确率AP(Average Precision)和mAP（mean AP）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-常见目标检测模型的性能比较"><span class="nav-number">4.</span> <span class="nav-text">3 常见目标检测模型的性能比较</span></a></li></ol></div>
             
 
           </div>
