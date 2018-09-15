@@ -299,6 +299,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/15/目标检测性能指标/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yanchen Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog_header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘晏辰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/目标检测性能指标/" itemprop="url">目标检测性能指标</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T13:45:35+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0 简介"></a>0 简介</h2><p>目标检测问题是指：</p>
+<p>给定一个图像，找到图像中存在的目标，并且进行位置标定和分类。具体目标的类别要在预先的训练中给出。</p>
+<h2 id="1-基础名词解释"><a href="#1-基础名词解释" class="headerlink" title="1 基础名词解释"></a>1 基础名词解释</h2><ul>
+<li>准确率（accuracy）</li>
+<li>精确率（precision）</li>
+<li>召回率（recall）</li>
+<li>数据真实值（Ground Truth）</li>
+<li>交并比（IOU）</li>
+</ul>
+<h3 id="1-1-准确率（accuracy）、精确率（precision）和召回率（recall）"><a href="#1-1-准确率（accuracy）、精确率（precision）和召回率（recall）" class="headerlink" title="1.1 准确率（accuracy）、精确率（precision）和召回率（recall）"></a>1.1 准确率（accuracy）、精确率（precision）和召回率（recall）</h3><p>在解释准确率、精确率和召回率之前，首先要解释几个概念。</p>
+<p>假设原始样本中有两类，分别为1和0，经过分类器后：</p>
+<ul>
+<li>TP：有TP个类别为1的样本被判定为类别1（正例被识别为正例）</li>
+<li>FP：有FP个类别为0的样本被误判为类别1（反例被识别为正例）</li>
+<li>TN：有TN个类别为0的样本被判定为类别0（反例被识别为反例）</li>
+<li>FN：有FN个类别为1的样本被误判为类别0（正例被识为反例）</li>
+</ul>
+<p>准确率（Accuracy）=(TP+TN)/(TP+FP+TN+FN)，反映了分类器对整个样本的判定能力——能将正的判定为正，负的判定为负。</p>
+<p>精确率（Precision）=TP/(TP+FP)。TP+FP是所有判断为正例的样本，反映了被分类器判定的正例中真正的正例样本的比重。</p>
+<p>召回率（Recall）=TP/(TP+FN)。TP+FN是样本中正例的数量，反映了被正确判定的正例占总的正例的比重 。</p>
+<h3 id="1-2-数据真实值（Ground-Truth）和交并比（IOU）"><a href="#1-2-数据真实值（Ground-Truth）和交并比（IOU）" class="headerlink" title="1.2 数据真实值（Ground Truth）和交并比（IOU）"></a>1.2 数据真实值（Ground Truth）和交并比（IOU）</h3><p>数据真实值（Ground Truth）可以认为是待检测图像的标签，它包括图像中的目标类别以及图像中每个目标的边界框。</p>
+<p>交并比（IOU）是指分类器所预测的检测框和数据真实的边界框的交集和并集的比例。如下图所示：</p>
+<p><img src="D:\blog_lyc\blog\public\2018\09\15\目标检测性能指标\iou.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/APB总线学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -674,7 +838,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -685,7 +849,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -696,7 +860,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

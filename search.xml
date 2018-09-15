@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[目标检测性能指标]]></title>
+    <url>%2F2018%2F09%2F15%2F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%2F</url>
+    <content type="text"><![CDATA[0 简介目标检测问题是指： 给定一个图像，找到图像中存在的目标，并且进行位置标定和分类。具体目标的类别要在预先的训练中给出。 1 基础名词解释 准确率（accuracy） 精确率（precision） 召回率（recall） 数据真实值（Ground Truth） 交并比（IOU） 1.1 准确率（accuracy）、精确率（precision）和召回率（recall）在解释准确率、精确率和召回率之前，首先要解释几个概念。 假设原始样本中有两类，分别为1和0，经过分类器后： TP：有TP个类别为1的样本被判定为类别1（正例被识别为正例） FP：有FP个类别为0的样本被误判为类别1（反例被识别为正例） TN：有TN个类别为0的样本被判定为类别0（反例被识别为反例） FN：有FN个类别为1的样本被误判为类别0（正例被识为反例） 准确率（Accuracy）=(TP+TN)/(TP+FP+TN+FN)，反映了分类器对整个样本的判定能力——能将正的判定为正，负的判定为负。 精确率（Precision）=TP/(TP+FP)。TP+FP是所有判断为正例的样本，反映了被分类器判定的正例中真正的正例样本的比重。 召回率（Recall）=TP/(TP+FN)。TP+FN是样本中正例的数量，反映了被正确判定的正例占总的正例的比重 。 1.2 数据真实值（Ground Truth）和交并比（IOU）数据真实值（Ground Truth）可以认为是待检测图像的标签，它包括图像中的目标类别以及图像中每个目标的边界框。 交并比（IOU）是指分类器所预测的检测框和数据真实的边界框的交集和并集的比例。如下图所示：]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>deep learning</tag>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[APB总线学习]]></title>
     <url>%2F2018%2F08%2F29%2FAPB%E6%80%BB%E7%BA%BF%E5%AD%A6%E4%B9%A0%2F</url>
     <content type="text"><![CDATA[0 简介​ APB(Advanced Peripheral Bus)，外围总线。APB属于AMBA 3 协议系列，它提供了一个低功耗的接口， 并降低了接口的复杂性。 APB接口用在低带宽和不需要高性能总线的外围设备上。 APB是非流水线结构，所有的信号仅与时钟上升沿相关，这样就可以简化APB外围设备的设计流程，每个传输至少耗用两个周期。APB可以与AMBA高级高性能总线(AHB-Lite) 和AMBA 高级可扩展接口 (AXI)连接。 ​ APB主要用于低带宽的周边外设之间的连接，例如UART、1284等，它的总线架构不像AHB支持多个主模块，在APB里面唯一的主模块就是APB 桥。其特性包括：两个时钟周期传输；无需等待周期和回应信号；控制逻辑简单，只有四个控制信号。APB上的传输可以用状态图来说明。 系统初始化为IDLE状态，此时没有传输操作，也没有选中任何从模块。 当有传输要进行时，PSELx=1，PENABLE=0，系统进入SETUP状态，并只会在SETUP 状态停留一个周期。当PCLK的下一个上升沿时到来时，系统进入ENABLE 状态。 系统进入ENABLE状态时，维持之前在SETUP 状态的PADDR、PSEL、PWRITE不变，并将PENABLE置为1。传输也只会在ENABLE状态维持一个周期，在经过SETUP与ENABLE状态之后就已完成。之后如果没有传输要进行，就进入IDLE状态等待；如果有连续的传输，则进入SETUP状态。 1 信号描述​ 下表给出了APB的信号。APB的支持最大32-bit的数据位宽。APB协议有两个独立的数据通道，读通道和写通道，由于APB的两个通道没有自己的handshake信号（vaild/ ready），因此两个通道不会同时使用。 除了上表的信号外，APB还有两个信号接口： PPROT: 保护类型，分为 normal, privileged, secure, data/instruction 访问。 PSTRRB: 写选通信号，指示哪个字节是有效的数据，PSTRB与PWDATA之间的关系为PSTRB[n] PWDATA[(8n+7):(8n)] 2 传输2.1 写传输​ 写传输包括两种类型：无等待状态和有等待状态 无等待状态​ 下图显示了一个基本的无等待状态的写传输。 ​ 地址、写入数据、写入信号和选择信号都在时钟上升沿后改变。第一个时钟周期叫做Setup phase。 下一个时钟沿后使能信号PENABLE被置位，表示Access phase就位。地址、数据和控制信号在Access phase期间有效。传输在该周期后结束。使能信号PENABLE, 在传输结束后清空。 选择信号PSELx同样被置低，除非紧接着下一传输开始。 有等待状态​ 下图展示了 PREADY 信号是如何扩展了从器件的传输。 ​ 在Access phase期间，当PENABLE为高，传输可以通过拉低PREADY来扩展传输。下述信号仍旧不变：• 地址： PADDR• 写信号： PWRITE• 选择信号： PSEL• 使能信号：PENABLE• 写入的数据： PWDATA。 2.2 读传输​ 读传输包括以下两种类型：无等待状态和有等待状态 。 无等待状态​ 下图显示了一个读传输的无等待状态的时序图。从器件必须在读传输结束前提供数据。 有等待状态​ 下图显示了信号是如何扩展传输的。如果在Access phase期间PREADY信号拉低，则传输被扩展。但下述信号不变：• 地址： PADDR• 写信号： PWRITE• 选择信号： PSEL• 使能信号： PENABLE. ​ 图中显示了如何使用PREADY信号来添加两个周期，你也可以添加数个周期。 2.3 错误响应​ 使用PSLVERR来指示APB传输错误。当PSEL, PENABLE以及PREADY 都为高时，PSLVERR才在最后一个周期进行判断。 当任何一个PSEL, PENABLE或者PREADY为低时，你可以将PSLVERR拉低，这是推荐，并不是强制要求。 收到一个错误后，可能或不可能改变外围器件的状态。 APB外围设备不要求必须支持PSLVERR引脚，当不使用该引脚时，应被置低。 ​ 写传输失败的例子。 读传输同样可以使用错误响应，下图便是一个错误响应的例子 PSLVERR映射： ​ AXI桥接到APB: AXI的RRESP/BRESP = APB的SLVERR(read: PSLVERR -&gt; RRESP[1], write: PSLVERR -&gt; BRESP[1]) ​ AHB桥接到APB: PSLVERR被映射到HRESP = ERROR(PSLVERR -&gt; HRESP[0]) 3 操作状态​ 下图给出了 APB的操作流程 ​ 状态机按照下面的状态执行： IDLE 这是默认的APB状态 SETUP 当传输被请求时，总线进入SETUP状态，选择信号 PSELx,被置位。总线仅在SETUP 状态停留一个时钟周期，并在下一个时钟周期进入ACCESS状态 ACCESS 使能信号PENABLE, 在ACCESS状态中置位。在传输从SETUP状态到ACCESS状态转变的过程中address, write, select和write data信号必须保持不变。从ACCESS状态退出，由从器件的PREADY 信号控制：a) 如果PREADY 为低，保持ACCESS状态。b)如果PREADY 为高，则退出ACCESS状态，如果此时没有其它传输请求，总线返回IDLE状态，否则进入SETUP状态。]]></content>
